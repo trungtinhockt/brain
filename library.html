@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thư viện sách nguồn - Đồng Bộ Bách Khoa</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="wiki-style.css">
+</head><body>
+<div class="shell">
+<nav class="sidebar" id="sidebar">
+  <a class="logo" href="index.html" style="text-decoration:none;">
+    <span class="mark">Đ</span>
+    <span class="word">Đồng Bộ<small>Bách khoa nghiên cứu não bộ</small></span>
+  </a>
+  <div class="nav-group">
+    <h3>Điều hướng</h3>
+    <ul>
+      <li><a href="index.html">Trang chính</a></li>
+      <li><a href="index.html#graph">Sơ đồ liên kết</a></li>
+      <li><a href="about.html">Giới thiệu dự án</a></li>
+      <li><a href="library.html" class="current">Thư viện sách nguồn</a></li>
+      <li><a href="pilot-tool.html">Công cụ pilot</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h3>Nền tảng</h3>
+    <ul><li><a href="insight1.html"><span class="insight-num">01</span>Thức tỉnh</a></li><li><a href="insight2.html"><span class="insight-num">02</span>Toàn cảnh Giải mã siêu trí tuệ</a></li><li><a href="insight3.html"><span class="insight-num">03</span>Bộ não rỗng</a></li><li><a href="insight4.html"><span class="insight-num">04</span>Thông tin thay đổi công nghệ</a></li><li><a href="insight5.html"><span class="insight-num">05</span>Não bộ lượng tử</a></li><li><a href="insight6.html"><span class="insight-num">06</span>Mạng lưới cộng hưởng</a></li><li><a href="insight12.html"><span class="insight-num">12</span>Cảm ứng cổ điển</a></li><li><a href="insight13.html"><span class="insight-num">13</span>Ngoại nhóm</a></li><li><a href="insight16.html"><span class="insight-num">16</span>Ba con đường làm rỗng não bộ</a></li></ul>
+  </div>
+  <div class="nav-group">
+    <h3>Nhánh định lượng</h3>
+    <ul><li><a href="insight7.html"><span class="insight-num">07</span>Đồng bộ sóng não nhờ rối lượng tử</a></li><li><a href="insight8.html"><span class="insight-num">08</span>Ranh giới của phép ẩn dụ</a></li><li><a href="insight9.html"><span class="insight-num">09</span>Từ bản thiết kế đến công cụ thật</a></li></ul>
+  </div>
+  <div class="nav-group">
+    <h3>Nhánh triết học-biểu tượng</h3>
+    <ul><li><a href="insight10.html"><span class="insight-num">10</span>Trở về cội nguồn</a></li><li><a href="insight11.html"><span class="insight-num">11</span>Tự Ngã</a></li><li><a href="insight14.html"><span class="insight-num">14</span>Đêm Trung Thu 2006</a></li><li><a href="insight15.html"><span class="insight-num">15</span>Con gà con năm 1994</a></li></ul>
+  </div>
+</nav>
+<div class="main">
+<div class="topbar">
+  <div class="crumbs"><a href="index.html">Đồng Bộ Bách Khoa</a> &rsaquo; Thư viện sách nguồn</div>
+  <div class="searchbox">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input type="text" id="site-search" placeholder="Tìm Insight..." autocomplete="off">
+  </div>
+</div>
+<div id="search-results" style="display:none;position:absolute;right:28px;margin-top:2px;background:#fff;border:1px solid var(--border);width:280px;z-index:30;box-shadow:0 2px 8px rgba(0,0,0,.12);"></div>
+<script>
+(function(){
+  const DATA = [[1, "Thức tỉnh", "Từ mô hình thực tế đến thiết kế nhận thức"], [2, "Toàn cảnh Giải mã siêu trí tuệ", "10 quy tắc và điểm giao thoa"], [3, "Bộ não rỗng", "Nghịch lý của trí tuệ từ trạng thái trống không"], [4, "Thông tin thay đổi công nghệ", "Khi cái vô hình định hình cái hữu hình"], [5, "Não bộ lượng tử", "Khi ý thức chạm vào kho thông tin vũ trụ"], [6, "Mạng lưới cộng hưởng", "Khi câu hỏi trở thành ăng-ten điều hướng thông tin vũ trụ"], [7, "Đồng bộ sóng não nhờ rối lượng tử", "Khi hai ăng-ten trở thành một"], [8, "Ranh giới của phép ẩn dụ", "Rối lượng tử vật lý, mô hình giống-lượng-tử, và synchronicity của Jung qua bất đẳng thức Bell"], [9, "Từ bản thiết kế đến công cụ thật", "Vì sao chưa có kết quả thô của người thật, và bộ công cụ pilot đầu tiên"], [10, "Trở về cội nguồn", "Kinh Dịch, Pauli-Jung, và câu trả lời cho chính câu hỏi mà Insight #8 để ngỏ"], [11, "Tự Ngã", "Cổ mẫu trung tâm nối liền não bộ là trạm thu phát với vũ trụ luận của Jung"], [12, "Cảm ứng cổ điển", "Khi khó chịu trong đầu bạn trở thành khó chịu trong đầu người khác"], [13, "Ngoại nhóm", "Khi bộ não tắt đồng cảm để một nhóm người giết một nhóm người khác"], [14, "Đêm Trung Thu 2006", "Khi thời gian dừng lại của Trung gặp lại ba giấc mơ hình thành Tự Ngã của Jung"], [15, "Con gà con năm 1994", "Vì sao trí nhớ chọn đúng ký ức đó giữa hàng triệu ký ức khả dĩ"], [16, "Ba con đường làm rỗng não bộ", "Chánh niệm dưới lăng kính khoa học thần kinh, đối chiếu với Insight #3"]];
+  const input = document.getElementById('site-search');
+  const results = document.getElementById('search-results');
+  if(!input) return;
+  input.addEventListener('input', () => {
+    const q = input.value.trim().toLowerCase();
+    if(!q){ results.style.display='none'; return; }
+    const matches = DATA.filter(d => d[1].toLowerCase().includes(q) || d[2].toLowerCase().includes(q)).slice(0,8);
+    if(!matches.length){ results.style.display='none'; return; }
+    results.innerHTML = matches.map(m => `<a href="insight${m[0]}.html" style="display:block;padding:8px 12px;font-size:12.5px;border-bottom:1px solid var(--border-light);">#${m[0]} ${m[1]}</a>`).join('');
+    results.style.display='block';
+  });
+  input.addEventListener('keydown', (ev) => {
+    if(ev.key==='Enter'){
+      const q = input.value.trim().toLowerCase();
+      const m = DATA.find(d => d[1].toLowerCase().includes(q) || d[2].toLowerCase().includes(q));
+      if(m) window.location.href = `insight${m[0]}.html`;
+    }
+  });
+  document.addEventListener('click', (ev) => { if(!ev.target.closest('.searchbox') && !ev.target.closest('#search-results')) results.style.display='none'; });
+})();
+</script>
+<div class="content-wide">
+  <h1 class="article-title">Những cuốn sách nền</h1>
+  <p class="article-sub">Chất liệu nguồn cho các Insight, thư mục 01_Sach_Goc trong Vault</p>
+  <div class="article-meta-box">Toàn văn tiếng Việt (định dạng Markdown, chia theo chương) được lưu trong Obsidian Vault, dùng làm nguồn đối chiếu và trích dẫn cho từng Insight. Danh sách này được rà soát và cập nhật mỗi khi có sách mới thêm vào thư mục nguồn - không cố định số lượng.</p>
+  <div class="wiki-section">
+    <div class="book-grid-wiki">
+      <div class="book-card-wiki">
+        <h4>Giải mã siêu trí tuệ</h4>
+        <div class="author">Vishen Lakhiani</div>
+        <p>Nguồn chính cho <a href="insight1.html">#1</a> &amp; <a href="insight2.html">#2</a>; cơ chế trực giác dùng lại ở <a href="insight12.html">#12</a>.</p>
+      </div>
+      <div class="book-card-wiki">
+        <h4>Não bộ kể gì về bạn?</h4>
+        <div class="author">David Eagleman</div>
+        <p>Cơ sở khoa học thần kinh cho trực giác &amp; tiềm thức trong <a href="insight3.html">#3</a>, <a href="insight5.html">#5</a>; phản chiếu cơ mặt &amp; đồng cảm trong <a href="insight12.html">#12</a>, <a href="insight13.html">#13</a>; bóp méo thời gian &amp; trí nhớ trong <a href="insight14.html">#14</a>, <a href="insight15.html">#15</a>.</p>
+      </div>
+      <div class="book-card-wiki">
+        <h4>Trí não bất bại</h4>
+        <div class="author">Gene D. Cohen</div>
+        <p>Tính dẻo thần kinh &amp; trí tuệ tuổi già - xuyên suốt <a href="insight3.html">#3</a> đến <a href="insight5.html">#5</a>; câu chuyện Arnold trong <a href="insight12.html">#12</a>; trí nhớ &amp; sự uyên bác là trục chính của <a href="insight15.html">#15</a>.</p>
+      </div>
+      <div class="book-card-wiki">
+        <h4>72 Kế Của Quỷ Cốc Tiên Sinh</h4>
+        <div class="author">Hồng Khánh &amp; Kỳ Anh</div>
+        <p>"Tâm tĩnh như nước" - trí tuệ cổ đại đối chiếu trong <a href="insight3.html">#3</a>, <a href="insight4.html">#4</a>. Còn chưa từng dùng làm trục chính.</p>
+      </div>
+      <div class="book-card-wiki">
+        <h4>Thăm dò tiềm thức</h4>
+        <div class="author">Carl Gustav Jung</div>
+        <p>Synchronicity, cổ mẫu &amp; vô thức tập thể - nền cho <a href="insight6.html">#6</a>, <a href="insight7.html">#7</a>, <a href="insight8.html">#8</a>, <a href="insight10.html">#10</a>, <a href="insight11.html">#11</a>, <a href="insight14.html">#14</a>, <a href="insight15.html">#15</a>.</p>
+      </div>
+      <div class="book-card-wiki">
+        <h4>Bản đồ tâm hồn con người của Jung</h4>
+        <div class="author">Murray Stein</div>
+        <p>Chương 9 (đồng thời tương ứng) nền cho <a href="insight10.html">#10</a>; Chương 7 (Tự Ngã) nền cho <a href="insight11.html">#11</a>, <a href="insight14.html">#14</a>; Chương 5 (bóng âm) nền cho <a href="insight13.html">#13</a>; Chương 2 (phức cảm) nền cho <a href="insight15.html">#15</a>.</p>
+      </div>
+      <div class="book-card-wiki">
+        <h4>Khoa học não bộ và thiền chánh niệm</h4>
+        <div class="author">(chưa xác định tác giả)</div>
+        <p>Mối liên hệ tâm-não, nền tảng vận hành não bộ trong chánh niệm, Tứ Vô Lượng Tâm - Chương Ba/Bốn là trục chính của <a href="insight16.html">#16</a>; Tứ Vô Lượng Tâm dùng trong <a href="insight13.html">#13</a>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="wiki-footer">
+  <p>Đồng Bộ Bách Khoa &mdash; nhật ký nghiên cứu về sự đồng bộ ý thức, rối lượng tử, và Kinh Dịch. Bản gốc lưu trữ tại Obsidian Vault "Brain / Mindset". Nội dung tổng hợp và phát triển với sự hỗ trợ của Claude (Anthropic). Trang này không phải Wikipedia và không liên kết với Wikimedia Foundation &mdash; chỉ mượn ngôn ngữ hình ảnh bách khoa toàn thư cho một dự án nghiên cứu cá nhân.</p>
+</footer>
+</div></div>
+</body></html>

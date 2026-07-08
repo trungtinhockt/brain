@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Công cụ Pilot - Thiết kế A - Đồng Bộ</title>
+<meta name="description" content="Công cụ thu thập &amp; phân tích dữ liệu pilot cho giao thức song phương (Insight #8, Thiết kế A).">
+<link rel="stylesheet" href="tool-style.css">
+<style>
+  .tool-wrap{max-width:760px;margin:0 auto;padding:0 24px 100px;}
+  .tool-hero{padding:56px 0 32px;}
+  .role-tabs{display:flex;gap:2px;background:var(--line);border:1px solid var(--line);margin:28px 0;}
+  .role-tabs button{
+    flex:1;background:var(--panel);color:var(--ink-dim);border:none;padding:14px;font-family:var(--mono);
+    font-size:12px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;
+  }
+  .role-tabs button.active{background:var(--bg);color:var(--quantum);}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:28px;margin:20px 0;}
+  .card h3{font-family:var(--serif);font-size:19px;margin:0 0 14px;color:var(--ink);}
+  .btn-block{
+    width:100%;font-family:var(--sans);font-weight:600;font-size:15px;padding:16px;border-radius:3px;
+    border:1px solid var(--quantum);background:var(--quantum);color:#0B1416;cursor:pointer;transition:.15s;
+  }
+  .btn-block:hover{background:#8CF0E3;}
+  .btn-block:disabled{opacity:.35;cursor:not-allowed;background:var(--panel-2);border-color:var(--line);color:var(--muted);}
+  .btn-ghost{
+    width:100%;font-family:var(--sans);font-weight:500;font-size:13px;padding:12px;border-radius:3px;
+    border:1px solid var(--line);background:transparent;color:var(--ink-dim);cursor:pointer;margin-top:10px;
+  }
+  .btn-ghost:hover{border-color:var(--quantum);color:var(--quantum);}
+  .warn-banner{
+    background:rgba(224,164,88,0.1);border:1px solid var(--warm);color:var(--warm);
+    font-family:var(--mono);font-size:12px;padding:12px 16px;border-radius:3px;margin-bottom:20px;line-height:1.6;
+  }
+  .sim-banner{
+    background:rgba(139,134,152,0.12);border:1px dashed var(--muted);color:var(--muted);
+    font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;
+    padding:10px 16px;border-radius:3px;margin-bottom:16px;text-align:center;
+  }
+  .target-reveal{
+    text-align:center;padding:50px 20px;font-family:var(--serif);font-size:28px;color:var(--quantum);
+    border:1px dashed var(--quantum);border-radius:4px;margin:20px 0;
+  }
+  .choice-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:20px 0;}
+  .choice-btn{
+    padding:24px 12px;text-align:center;font-family:var(--serif);font-size:16px;color:var(--ink);
+    background:var(--panel-2);border:1px solid var(--line);border-radius:4px;cursor:pointer;transition:.15s;
+  }
+  .choice-btn:hover{border-color:var(--quantum);}
+  .choice-btn.selected{border-color:var(--quantum);background:rgba(110,231,216,0.08);color:var(--quantum);}
+  .choice-btn .emoji{font-size:28px;display:block;margin-bottom:8px;}
+  .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);border:1px solid var(--line);margin:20px 0;}
+  .stat-box{background:var(--bg);padding:16px 14px;text-align:center;}
+  .stat-box .v{font-family:var(--mono);font-size:22px;color:var(--quantum);}
+  .stat-box .l{font-family:var(--mono);font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-top:4px;}
+  table.log{width:100%;border-collapse:collapse;font-size:13px;margin-top:16px;}
+  table.log th, table.log td{border:1px solid var(--line);padding:7px 10px;text-align:left;font-family:var(--mono);}
+  table.log th{color:var(--warm);font-size:10px;text-transform:uppercase;background:var(--panel-2);}
+  .hit{color:var(--quantum);}
+  .miss{color:var(--muted);}
+  .row-actions{display:flex;gap:10px;margin-top:14px;}
+  .row-actions .btn-ghost{margin-top:0;}
+  .hidden{display:none !important;}
+  .step-label{font-family:var(--mono);font-size:11px;color:var(--warm);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;}
+</style>
+</head><body>
+
+<nav class="site-nav"><div class="inner">
+  <a class="brand" href="index.html"><span class="dot-pair"><span></span><span></span></span>Đồng Bộ - Nghiên cứu Não bộ &amp; Rối lượng tử</a>
+  <div class="navlinks">
+    <a href="index.html">Trang chủ</a>
+    <a href="library.html">Thư viện sách</a>
+    <a href="about.html">Về dự án</a>
+    <a href="insight9.html">Insight #9</a>
+  </div>
+</div></nav>
+
+<div class="tool-wrap">
+  <header class="tool-hero">
+    <div class="eyebrow">Công cụ đi kèm Insight #9</div>
+    <h1 class="display" style="font-size:clamp(28px,4.5vw,40px);">Công cụ pilot <em>Thiết kế A</em></h1>
+    <p class="lede" style="font-size:16px;">Thu thập dữ liệu thật cho giao thức song phương (Insight #8). Chạy hoàn toàn trong trình duyệt, không máy chủ - dữ liệu xuất ra file CSV để bạn tự lưu trữ.</p>
+  </header>
+
+  <div class="warn-banner">
+    ⚠ CÔNG CỤ NÀY KHÔNG THAY THẾ NGƯỜI THẬT. Mọi phiên trong bảng "Nhật ký thật" phải là kết quả của hai người thực hiện đúng quy trình. Đừng tự đoán một mình rồi ghi vào bảng này - hãy dùng mục "Mô phỏng đường ống" bên dưới nếu chỉ muốn kiểm tra công cụ.
+  </div>
+
+  <!-- STEP 0: SETUP -->
+  <div class="card" id="card-setup">
+    <h3>1 · Thiết lập phiên</h3>
+    <p style="font-size:14px;color:var(--ink-dim);margin:0 0 16px;">Bộ mục tiêu mặc định gồm 4 hình trừu tượng (theo khuyến nghị Insight #9, Phần IV.3 - ưu tiên tính khách quan khi chấm điểm).</p>
+    <div class="choice-grid" id="target-pool-display"></div>
+    <button class="btn-block" id="btn-start-session">Bắt đầu phiên mới - chọn mục tiêu ngẫu nhiên</button>
+  </div>
+
+  <!-- STEP 1: SENDER REVEAL -->
+  <div class="card hidden" id="card-sender">
+    <div class="step-label">Bước 1 / 3 - Chỉ người gửi nhìn màn hình này</div>
+    <h3>Người gửi: tập trung vào mục tiêu</h3>
+    <p style="font-size:14px;color:var(--ink-dim);">Bấm nút bên dưới để hiện mục tiêu. Giữ hình ảnh này trong tâm trí trong lúc thiền chung (rút gọn 3-5 phút cho giai đoạn pilot, theo Insight #9 Phần IV.5).</p>
+    <button class="btn-ghost" id="btn-reveal-target">Hiện mục tiêu</button>
+    <div class="target-reveal hidden" id="target-reveal-box"></div>
+    <button class="btn-block hidden" id="btn-done-sending" style="margin-top:16px;">Đã xong - chuyển thiết bị cho người nhận</button>
+  </div>
+
+  <!-- STEP 2: HANDOFF -->
+  <div class="card hidden" id="card-handoff">
+    <div class="step-label">Chuyển thiết bị</div>
+    <h3>Đưa thiết bị cho người nhận</h3>
+    <p style="font-size:14px;color:var(--ink-dim);">Người gửi không nhìn màn hình nữa. Người nhận bấm tiếp khi đã sẵn sàng.</p>
+    <button class="btn-block" id="btn-receiver-ready">Tôi là người nhận, đã sẵn sàng</button>
+  </div>
+
+  <!-- STEP 3: RECEIVER GUESS -->
+  <div class="card hidden" id="card-receiver">
+    <div class="step-label">Bước 2 / 3 - Chỉ người nhận chọn</div>
+    <h3>Người nhận: ấn tượng của bạn là gì?</h3>
+    <div class="choice-grid" id="receiver-choice-grid"></div>
+    <button class="btn-block" id="btn-lock-answer" disabled>Chốt câu trả lời (không sửa được sau khi chốt)</button>
+  </div>
+
+  <!-- STEP 4: RESULT -->
+  <div class="card hidden" id="card-result">
+    <div class="step-label">Bước 3 / 3 - Kết quả phiên</div>
+    <h3 id="result-heading"></h3>
+    <p id="result-detail" style="font-size:14px;color:var(--ink-dim);"></p>
+    <button class="btn-block" id="btn-next-session">Ghi vào nhật ký &amp; bắt đầu phiên tiếp theo</button>
+  </div>
+
+  <!-- STATS -->
+  <div class="card" id="card-stats">
+    <h3>Thống kê thời gian thực - Nhật ký thật</h3>
+    <div class="stat-grid">
+      <div class="stat-box"><div class="v" id="stat-n">0</div><div class="l">Số phiên</div></div>
+      <div class="stat-box"><div class="v" id="stat-hits">0</div><div class="l">Khớp</div></div>
+      <div class="stat-box"><div class="v" id="stat-rate">-</div><div class="l">Tỷ lệ</div></div>
+      <div class="stat-box"><div class="v" id="stat-ci">-</div><div class="l">Wilson 95% CI</div></div>
+      <div class="stat-box"><div class="v" id="stat-p">-</div><div class="l">p (nhị thức, 1 phía)</div></div>
+      <div class="stat-box"><div class="v" id="stat-sig">-</div><div class="l">Ý nghĩa (α=0.05)</div></div>
+    </div>
+    <table class="log" id="log-table">
+      <thead><tr><th>#</th><th>Thời gian</th><th>Mục tiêu</th><th>Trả lời</th><th>Kết quả</th></tr></thead>
+      <tbody id="log-body"></tbody>
+    </table>
+    <div class="row-actions">
+      <button class="btn-ghost" id="btn-export-csv">Xuất CSV</button>
+      <label class="btn-ghost" style="text-align:center;cursor:pointer;">Nhập CSV<input type="file" id="input-import-csv" accept=".csv" style="display:none;"></label>
+      <button class="btn-ghost" id="btn-reset-log">Xoá nhật ký</button>
+    </div>
+  </div>
+
+  <!-- SIMULATION -->
+  <div class="card">
+    <h3>Mô phỏng đường ống (kiểm tra công cụ - không phải dữ liệu người thật)</h3>
+    <p style="font-size:14px;color:var(--ink-dim);">Tạo N lượt thử bằng bộ sinh ngẫu nhiên của máy, dùng để kiểm định phép tính thống kê, đúng như Insight #9 Phần III. Không bao giờ trộn vào nhật ký thật ở trên.</p>
+    <div class="row-actions">
+      <button class="btn-ghost" id="btn-sim-null">Mô phỏng 10 lượt - H₀ (đoán ngẫu nhiên, p=0.25)</button>
+      <button class="btn-ghost" id="btn-sim-effect">Mô phỏng 10 lượt - giả định hiệu ứng (p=0.45)</button>
+    </div>
+    <div id="sim-output" style="margin-top:16px;"></div>
+  </div>
+
+  <p style="font-size:12px;color:var(--muted);margin-top:40px;">Xem phương pháp luận đầy đủ tại <a href="insight9.html">Insight #9</a> và thiết kế gốc tại <a href="insight8.html">Insight #8, Phần II</a>.</p>
+</div>
+
+<footer class="site-footer"><div class="wrap-wide">
+  <p>Đồng Bộ - nhật ký nghiên cứu về sự đồng bộ ý thức và rối lượng tử. Bản gốc lưu trữ tại Obsidian Vault "Brain / Mindset". Nội dung tổng hợp và phát triển với sự hỗ trợ của Claude (Anthropic).</p>
+</div></footer>
+
+<script>
+// ---------- Target pool ----------
+const TARGETS = [
+  {id:'circle', label:'Hình tròn', emoji:'●'},
+  {id:'square', label:'Hình vuông', emoji:'■'},
+  {id:'wave', label:'Sóng nước', emoji:'〜'},
+  {id:'flame', label:'Ngọn lửa', emoji:'▲'},
+];
+
+function renderPoolDisplay(){
+  const el = document.getElementById('target-pool-display');
+  el.innerHTML = TARGETS.map(t => `<div class="choice-btn" style="cursor:default;"><span class="emoji">${t.emoji}</span>${t.label}</div>`).join('');
+}
+renderPoolDisplay();
+
+// ---------- Crypto-secure random index ----------
+function secureRandomIndex(n){
+  const arr = new Uint32Array(1);
+  crypto.getRandomValues(arr);
+  return arr[0] % n;
+}
+
+// ---------- State ----------
+let currentTarget = null;
+let currentAnswer = null;
+let realLog = []; // {n, time, target, answer, hit}
+
+const el = id => document.getElementById(id);
+
+// ---------- Flow: setup -> sender -> handoff -> receiver -> result ----------
+el('btn-start-session').addEventListener('click', () => {
+  currentTarget = TARGETS[secureRandomIndex(TARGETS.length)];
+  currentAnswer = null;
+  el('card-setup').classList.add('hidden');
+  el('card-sender').classList.remove('hidden');
+  el('target-reveal-box').classList.add('hidden');
+  el('target-reveal-box').textContent = '';
+  el('btn-done-sending').classList.add('hidden');
+  el('btn-reveal-target').classList.remove('hidden');
+});
+
+el('btn-reveal-target').addEventListener('click', () => {
+  el('target-reveal-box').classList.remove('hidden');
+  el('target-reveal-box').innerHTML = `<div style="font-size:48px;">${currentTarget.emoji}</div>${currentTarget.label}`;
+  el('btn-reveal-target').classList.add('hidden');
+  el('btn-done-sending').classList.remove('hidden');
+});
+
+el('btn-done-sending').addEventListener('click', () => {
+  el('card-sender').classList.add('hidden');
+  el('card-handoff').classList.remove('hidden');
+});
+
+el('btn-receiver-ready').addEventListener('click', () => {
+  el('card-handoff').classList.add('hidden');
+  el('card-receiver').classList.remove('hidden');
+  renderReceiverGrid();
+});
+
+function renderReceiverGrid(){
+  const grid = el('receiver-choice-grid');
+  const opts = [...TARGETS, {id:'none', label:'Không có ấn tượng', emoji:'-'}];
+  grid.innerHTML = opts.map(t =>
+    `<div class="choice-btn" data-id="${t.id}"><span class="emoji">${t.emoji}</span>${t.label}</div>`
+  ).join('');
+  grid.querySelectorAll('.choice-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      grid.querySelectorAll('.choice-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      currentAnswer = btn.dataset.id;
+      el('btn-lock-answer').disabled = false;
+    });
+  });
+  el('btn-lock-answer').disabled = true;
+}
+
+el('btn-lock-answer').addEventListener('click', () => {
+  const hit = currentAnswer === currentTarget.id;
+  el('card-receiver').classList.add('hidden');
+  el('card-result').classList.remove('hidden');
+  el('result-heading').textContent = hit ? '✓ Khớp' : '✗ Không khớp';
+  el('result-heading').style.color = hit ? 'var(--quantum)' : 'var(--muted)';
+  const answerLabel = currentAnswer === 'none' ? 'Không có ấn tượng' : TARGETS.find(t=>t.id===currentAnswer).label;
+  el('result-detail').textContent = `Mục tiêu: ${currentTarget.label} · Trả lời: ${answerLabel}`;
+});
+
+el('btn-next-session').addEventListener('click', () => {
+  const hit = currentAnswer === currentTarget.id;
+  realLog.push({
+    n: realLog.length+1,
+    time: new Date().toLocaleString('vi-VN'),
+    target: currentTarget.label,
+    answer: currentAnswer === 'none' ? 'Không có ấn tượng' : TARGETS.find(t=>t.id===currentAnswer).label,
+    hit: hit
+  });
+  el('card-result').classList.add('hidden');
+  el('card-setup').classList.remove('hidden');
+  updateStatsAndLog();
+});
+
+// ---------- Statistics (exact binomial + Wilson CI) ----------
+function binomPMF(n,k,p){
+  if(k<0||k>n) return 0;
+  let logCoef = 0;
+  for(let i=1;i<=k;i++){ logCoef += Math.log(n-i+1) - Math.log(i); }
+  return Math.exp(logCoef + k*Math.log(p) + (n-k)*Math.log(1-p));
+}
+function binomSF(n,k,p){ // P(X >= k)
+  let s=0;
+  for(let i=k;i<=n;i++) s += binomPMF(n,i,p);
+  return Math.min(1, Math.max(0, s));
+}
+function wilsonCI(k,n,z=1.96){
+  if(n===0) return [0,0];
+  const phat = k/n;
+  const denom = 1 + z*z/n;
+  const center = phat + z*z/(2*n);
+  const margin = z*Math.sqrt(phat*(1-phat)/n + z*z/(4*n*n));
+  return [Math.max(0,(center-margin)/denom), Math.min(1,(center+margin)/denom)];
+}
+
+function computeStats(log, p0=0.25){
+  const n = log.length;
+  const hits = log.filter(r=>r.hit).length;
+  const rate = n>0 ? hits/n : 0;
+  const ci = wilsonCI(hits, n);
+  const p = n>0 ? binomSF(n, hits, p0) : null;
+  return {n, hits, rate, ci, p};
+}
+
+function renderStatBlock(stats, prefix=''){
+  return {
+    n: stats.n,
+    hits: stats.hits,
+    rate: stats.n>0 ? (stats.rate*100).toFixed(1)+'%' : '-',
+    ci: stats.n>0 ? `${(stats.ci[0]*100).toFixed(0)}–${(stats.ci[1]*100).toFixed(0)}%` : '-',
+    p: stats.p!==null ? stats.p.toFixed(3) : '-',
+    sig: stats.p!==null ? (stats.p<0.05 ? 'Có (p<0.05)' : 'Chưa đạt') : '-'
+  };
+}
+
+function updateStatsAndLog(){
+  const stats = computeStats(realLog);
+  const r = renderStatBlock(stats);
+  el('stat-n').textContent = r.n;
+  el('stat-hits').textContent = r.hits;
+  el('stat-rate').textContent = r.rate;
+  el('stat-ci').textContent = r.ci;
+  el('stat-p').textContent = r.p;
+  el('stat-sig').textContent = r.sig;
+
+  el('log-body').innerHTML = realLog.map(row => `
+    <tr>
+      <td>${row.n}</td><td>${row.time}</td><td>${row.target}</td><td>${row.answer}</td>
+      <td class="${row.hit?'hit':'miss'}">${row.hit?'✓ Khớp':'✗ Trượt'}</td>
+    </tr>`).join('');
+}
+
+// ---------- CSV export / import ----------
+el('btn-export-csv').addEventListener('click', () => {
+  const header = 'session,time,target,answer,hit\n';
+  const rows = realLog.map(r => `${r.n},"${r.time}","${r.target}","${r.answer}",${r.hit}`).join('\n');
+  const blob = new Blob([header+rows], {type:'text/csv;charset=utf-8;'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = `dong-bo-pilot-log-${Date.now()}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+});
+
+el('input-import-csv').addEventListener('change', (e) => {
+  const file = e.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = (evt) => {
+    const lines = evt.target.result.split('\n').filter(l=>l.trim().length>0);
+    lines.slice(1).forEach(line => {
+      const parts = line.match(/(".*?"|[^",]+)(?=,|$)/g);
+      if(!parts || parts.length<5) return;
+      const clean = s => s.replace(/^"|"$/g,'');
+      realLog.push({
+        n: realLog.length+1,
+        time: clean(parts[1]),
+        target: clean(parts[2]),
+        answer: clean(parts[3]),
+        hit: clean(parts[4]) === 'true'
+      });
+    });
+    updateStatsAndLog();
+  };
+  reader.readAsText(file);
+});
+
+el('btn-reset-log').addEventListener('click', () => {
+  if(confirm('Xoá toàn bộ nhật ký thật trong phiên trình duyệt này? (Hãy xuất CSV trước nếu chưa lưu.)')){
+    realLog = [];
+    updateStatsAndLog();
+  }
+});
+
+// ---------- Pipeline simulation (synthetic, clearly separated) ----------
+function runSimulation(pTrue, label){
+  const n = 10;
+  let sim = [];
+  for(let i=0;i<n;i++){
+    const hit = Math.random() < pTrue; // synthetic RNG is fine here - this is NOT the real-session target generator
+    sim.push({n:i+1, hit});
+  }
+  const hits = sim.filter(r=>r.hit).length;
+  const rate = hits/n;
+  const p = binomSF(n, hits, 0.25);
+  const ci = wilsonCI(hits, n);
+  const seq = sim.map(r => r.hit ? '✓' : '✗').join(' ');
+  el('sim-output').innerHTML = `
+    <div class="sim-banner">DỮ LIỆU TỔNG HỢP (${label}) - KHÔNG PHẢI CON NGƯỜI THẬT</div>
+    <div class="card" style="margin:0;">
+      <p style="font-family:var(--mono);font-size:13px;">${seq}</p>
+      <div class="stat-grid">
+        <div class="stat-box"><div class="v">${hits}/${n}</div><div class="l">Khớp</div></div>
+        <div class="stat-box"><div class="v">${(rate*100).toFixed(0)}%</div><div class="l">Tỷ lệ</div></div>
+        <div class="stat-box"><div class="v">${(ci[0]*100).toFixed(0)}–${(ci[1]*100).toFixed(0)}%</div><div class="l">Wilson 95% CI</div></div>
+        <div class="stat-box"><div class="v">${p.toFixed(3)}</div><div class="l">p (1 phía vs 0.25)</div></div>
+        <div class="stat-box"><div class="v">${p<0.05?'Có':'Chưa đạt'}</div><div class="l">Ý nghĩa α=0.05</div></div>
+        <div class="stat-box"><div class="v">n=10</div><div class="l">Chỉ để kiểm tra công cụ</div></div>
+      </div>
+    </div>`;
+}
+el('btn-sim-null').addEventListener('click', () => runSimulation(0.25, 'H₀ đúng, p=0.25'));
+el('btn-sim-effect').addEventListener('click', () => runSimulation(0.45, 'giả định hiệu ứng, p=0.45'));
+
+updateStatsAndLog();
+</script>
+</body></html>

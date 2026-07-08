@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insight #6: Mạng lưới cộng hưởng - Đồng Bộ Bách Khoa</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="wiki-style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+</head><body>
+<div class="shell">
+<nav class="sidebar" id="sidebar">
+  <a class="logo" href="index.html" style="text-decoration:none;">
+    <span class="mark">Đ</span>
+    <span class="word">Đồng Bộ<small>Bách khoa nghiên cứu não bộ</small></span>
+  </a>
+  <div class="nav-group">
+    <h3>Điều hướng</h3>
+    <ul>
+      <li><a href="index.html">Trang chính</a></li>
+      <li><a href="index.html#graph">Sơ đồ liên kết</a></li>
+      <li><a href="about.html">Giới thiệu dự án</a></li>
+      <li><a href="library.html">Thư viện sách nguồn</a></li>
+      <li><a href="pilot-tool.html">Công cụ pilot</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h3>Nền tảng</h3>
+    <ul><li><a href="insight1.html"><span class="insight-num">01</span>Thức tỉnh</a></li><li><a href="insight2.html"><span class="insight-num">02</span>Toàn cảnh Giải mã siêu trí tuệ</a></li><li><a href="insight3.html"><span class="insight-num">03</span>Bộ não rỗng</a></li><li><a href="insight4.html"><span class="insight-num">04</span>Thông tin thay đổi công nghệ</a></li><li><a href="insight5.html"><span class="insight-num">05</span>Não bộ lượng tử</a></li><li><a href="insight6.html" class="current"><span class="insight-num">06</span>Mạng lưới cộng hưởng</a></li><li><a href="insight12.html"><span class="insight-num">12</span>Cảm ứng cổ điển</a></li><li><a href="insight13.html"><span class="insight-num">13</span>Ngoại nhóm</a></li><li><a href="insight16.html"><span class="insight-num">16</span>Ba con đường làm rỗng não bộ</a></li></ul>
+  </div>
+  <div class="nav-group">
+    <h3>Nhánh định lượng</h3>
+    <ul><li><a href="insight7.html"><span class="insight-num">07</span>Đồng bộ sóng não nhờ rối lượng tử</a></li><li><a href="insight8.html"><span class="insight-num">08</span>Ranh giới của phép ẩn dụ</a></li><li><a href="insight9.html"><span class="insight-num">09</span>Từ bản thiết kế đến công cụ thật</a></li></ul>
+  </div>
+  <div class="nav-group">
+    <h3>Nhánh triết học-biểu tượng</h3>
+    <ul><li><a href="insight10.html"><span class="insight-num">10</span>Trở về cội nguồn</a></li><li><a href="insight11.html"><span class="insight-num">11</span>Tự Ngã</a></li><li><a href="insight14.html"><span class="insight-num">14</span>Đêm Trung Thu 2006</a></li><li><a href="insight15.html"><span class="insight-num">15</span>Con gà con năm 1994</a></li></ul>
+  </div>
+</nav>
+<div class="main">
+<div class="topbar">
+  <div class="crumbs"><a href="index.html">Đồng Bộ Bách Khoa</a> &rsaquo; Insight #6</div>
+  <div class="searchbox">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input type="text" id="site-search" placeholder="Tìm Insight..." autocomplete="off">
+  </div>
+</div>
+<div id="search-results" style="display:none;position:absolute;right:28px;margin-top:2px;background:#fff;border:1px solid var(--border);width:280px;z-index:30;box-shadow:0 2px 8px rgba(0,0,0,.12);"></div>
+<script>
+(function(){
+  const DATA = [[1, "Thức tỉnh", "Từ mô hình thực tế đến thiết kế nhận thức"], [2, "Toàn cảnh Giải mã siêu trí tuệ", "10 quy tắc và điểm giao thoa"], [3, "Bộ não rỗng", "Nghịch lý của trí tuệ từ trạng thái trống không"], [4, "Thông tin thay đổi công nghệ", "Khi cái vô hình định hình cái hữu hình"], [5, "Não bộ lượng tử", "Khi ý thức chạm vào kho thông tin vũ trụ"], [6, "Mạng lưới cộng hưởng", "Khi câu hỏi trở thành ăng-ten điều hướng thông tin vũ trụ"], [7, "Đồng bộ sóng não nhờ rối lượng tử", "Khi hai ăng-ten trở thành một"], [8, "Ranh giới của phép ẩn dụ", "Rối lượng tử vật lý, mô hình giống-lượng-tử, và synchronicity của Jung qua bất đẳng thức Bell"], [9, "Từ bản thiết kế đến công cụ thật", "Vì sao chưa có kết quả thô của người thật, và bộ công cụ pilot đầu tiên"], [10, "Trở về cội nguồn", "Kinh Dịch, Pauli-Jung, và câu trả lời cho chính câu hỏi mà Insight #8 để ngỏ"], [11, "Tự Ngã", "Cổ mẫu trung tâm nối liền não bộ là trạm thu phát với vũ trụ luận của Jung"], [12, "Cảm ứng cổ điển", "Khi khó chịu trong đầu bạn trở thành khó chịu trong đầu người khác"], [13, "Ngoại nhóm", "Khi bộ não tắt đồng cảm để một nhóm người giết một nhóm người khác"], [14, "Đêm Trung Thu 2006", "Khi thời gian dừng lại của Trung gặp lại ba giấc mơ hình thành Tự Ngã của Jung"], [15, "Con gà con năm 1994", "Vì sao trí nhớ chọn đúng ký ức đó giữa hàng triệu ký ức khả dĩ"], [16, "Ba con đường làm rỗng não bộ", "Chánh niệm dưới lăng kính khoa học thần kinh, đối chiếu với Insight #3"]];
+  const input = document.getElementById('site-search');
+  const results = document.getElementById('search-results');
+  if(!input) return;
+  input.addEventListener('input', () => {
+    const q = input.value.trim().toLowerCase();
+    if(!q){ results.style.display='none'; return; }
+    const matches = DATA.filter(d => d[1].toLowerCase().includes(q) || d[2].toLowerCase().includes(q)).slice(0,8);
+    if(!matches.length){ results.style.display='none'; return; }
+    results.innerHTML = matches.map(m => `<a href="insight${m[0]}.html" style="display:block;padding:8px 12px;font-size:12.5px;border-bottom:1px solid var(--border-light);">#${m[0]} ${m[1]}</a>`).join('');
+    results.style.display='block';
+  });
+  input.addEventListener('keydown', (ev) => {
+    if(ev.key==='Enter'){
+      const q = input.value.trim().toLowerCase();
+      const m = DATA.find(d => d[1].toLowerCase().includes(q) || d[2].toLowerCase().includes(q));
+      if(m) window.location.href = `insight${m[0]}.html`;
+    }
+  });
+  document.addEventListener('click', (ev) => { if(!ev.target.closest('.searchbox') && !ev.target.closest('#search-results')) results.style.display='none'; });
+})();
+</script>
+<div class="content">
+  <div class="infobox">
+    <div class="ib-title">Insight #6</div>
+    <div class="ib-row"><div class="ib-k">Ngày</div><div class="ib-v">26.06.2026</div></div>
+    <div class="ib-row"><div class="ib-k">Nhánh</div><div class="ib-v">Nền tảng</div></div>
+    <div class="ib-row"><div class="ib-k">Nguồn</div><div class="ib-v">Hebb, Buzsáki, Friston</div></div>
+    <div class="ib-links"><a href="index.html#graph">Xem trong sơ đồ liên kết &rarr;</a></div>
+  </div>
+  <h1 class="article-title">Mạng lưới cộng hưởng</h1>
+  <p class="article-sub">Khi câu hỏi trở thành ăng-ten điều hướng thông tin vũ trụ</p>
+  
+  <div class="prose" id="article-body">Đang tải nội dung...</div>
+  <div class="article-nav"><a href="insight5.html"><span class="label">&larr; Trước</span>Insight #5: Não bộ lượng tử</a><a href="insight7.html" style="text-align:right"><span class="label">Tiếp theo &rarr;</span>Insight #7: Đồng bộ sóng não nhờ rối lượng tử</a></div>
+</div>
+<footer class="wiki-footer">
+  <p>Đồng Bộ Bách Khoa &mdash; nhật ký nghiên cứu về sự đồng bộ ý thức, rối lượng tử, và Kinh Dịch. Bản gốc lưu trữ tại Obsidian Vault "Brain / Mindset". Nội dung tổng hợp và phát triển với sự hỗ trợ của Claude (Anthropic). Trang này không phải Wikipedia và không liên kết với Wikimedia Foundation &mdash; chỉ mượn ngôn ngữ hình ảnh bách khoa toàn thư cho một dự án nghiên cứu cá nhân.</p>
+</footer>
+</div></div>
+<script id="md-source" type="text/markdown">**Nguồn:** Ý tưởng gốc từ Võ Đình Trung + Lakhiani, Eagleman, Cohen + Wheeler, Penrose-Hameroff, James, Bergson + Hebb, Buzsáki, Friston
+**Ngày:** 26-06-2026 · **Board:** Summer 2026 · **Liên kết:** Insight #5: Não bộ lượng tử
+
+---
+
+> "Bạn không tìm thấy câu trả lời. Câu trả lời tìm thấy bạn - nhưng chỉ khi bạn đã đặt đúng câu hỏi." - Võ Đình Trung
+
+## Luận đề: Thông tin có tính kết nối hoàn hảo
+
+Thông tin không tồn tại như những hạt rời rạc - nó tồn tại như một trường liên tục, và cơ chế điều hướng để kết nối các mảnh thông tin chính là **câu hỏi**. Khi bạn đặt câu hỏi, vài ngày sau "một sự kết nối nào đó" xuất hiện; khi nghiên cứu ở trình độ thấp, thông tin nhận được tương ứng trình độ đó, và khi tiếp cận đề tài cao hơn, bạn được "dẫn đến" nguồn tài liệu cao hơn.
+
+## I. Câu hỏi như cơ chế "điều chỉnh tần số"
+
+Van giảm áp của Bergson không chỉ nhị phân (mở/đóng) - nó có thể điều chỉnh, và **câu hỏi chính là núm vặn**. Câu hỏi hoạt động như một toán tử đo lường lượng tử: không chỉ làm sụp đổ hàm sóng khả năng, mà định hướng cho sự sụp đổ đó theo hướng câu hỏi đã xác định. Chất lượng câu hỏi quyết định chất lượng câu trả lời - output tỉ lệ thuận với độ chính xác của input.
+
+## II. Cơ chế nơ-ron
+
+**Hebb (1949)**: "Neuron nào bắn cùng nhau, sẽ kết nối cùng nhau." Đặt câu hỏi "mồi" một quần thể nơ-ron, tăng độ nhạy của mạng lưới liên quan - giải thích tại sao câu trả lời "vài ngày sau" xuất hiện: cần thời gian để mạng lưới được mồi đủ mạnh (thường qua vài chu kỳ ngủ).
+
+**Buzsáki**: thông tin trong não truyền qua đồng bộ hóa các quần thể nơ-ron dao động (gamma ~30-100Hz: chú ý tập trung; theta ~4-8Hz: trí nhớ; alpha ~8-12Hz: trực giác). Câu hỏi thiết lập một "tần số dò" - não chỉ bắt tín hiệu cộng hưởng với tần số đó, giải thích tại sao sau khi đặt câu hỏi bạn "nhìn thấy" câu trả lời khắp nơi.
+
+**Friston**: nguyên lý năng lượng tự do tối thiểu - não là cỗ máy dự đoán chủ động. Câu hỏi tạo ra "lỗ hổng dự đoán" (chân không thông tin) mà não bị thúc đẩy để lấp đầy - kể cả bằng cách mở van giảm áp để tiếp nhận thông tin từ trường vũ trụ.
+
+## III. Luật hấp dẫn qua lăng kính khoa học
+
+Ba tầng cơ chế: (1) Cộng hưởng nơ-ron (RAS quét môi trường tìm tín hiệu phù hợp); (2) Van giảm áp có chọn lọc (chân không thông tin buộc van mở ở đúng tần số); (3) Phát tín hiệu vào trường vũ trụ (sống với ý tưởng, không chỉ nghĩ về nó, biến bạn thành máy phát).
+
+**Synchronicity của Jung**: những trùng hợp không giải thích được bằng nhân quả nhưng mang ý nghĩa sâu sắc - có thể là khoảnh khắc trường thông tin tự sắp xếp để hai tín hiệu (nội tâm và ngoại cảnh) đồng bộ hóa.
+
+## IV. Cấp độ tiếp nhận - độ phân giải của van giảm áp
+
+Van giảm áp không chỉ lọc theo tần số mà còn theo **độ phân giải** - như một tấm lưới với lỗ có kích thước thay đổi. Học hỏi mở rộng cấu trúc nơ-ron → nới rộng lỗ lưới → thông tin phức tạp hơn lọt qua. **Vòng xoắn tiến hóa thông tin**: trình độ thấp → van lỗ nhỏ → thông tin đơn giản → học → cấu trúc mới → van lỗ lớn hơn → lặp lại vô hạn. Đây là lý do các thiên tài (Ramanujan, Tesla, Mozart) mô tả sáng tạo là "nó đến với tôi," không phải "tôi nghĩ ra."
+
+Người "kẹt" ở một trình độ là vì không đặt câu hỏi - không có chân không thông tin, không có áp suất mở van.
+
+## V. Từ cá nhân đến mạng lưới
+
+**Cộng hưởng tập thể**: khi nhiều não cùng điều chỉnh một tần số, tín hiệu cộng hưởng mạnh hơn một não đơn lẻ - giải thích trí tuệ tập thể, khám phá đồng thời (Newton/Leibniz, Darwin/Wallace), và Zeitgeist (tần số cộng hưởng tập thể của hàng triệu bộ não).
+
+Hệ quả cho giáo dục: lớp học nên là nơi đồng bộ hóa câu hỏi, không chỉ truyền đạt; brainstorming là mở van giảm áp tập thể; các "cặp đôi sáng tạo" (Jobs-Wozniak, Lennon-McCartney) là hai ăng-ten đồng bộ hóa.
+
+**"Siêu não" nhân loại**: về nguyên tắc có thể - và đã đang diễn ra qua trường cộng hưởng tập thể ý thức nhân loại; Internet chỉ là hạ tầng làm nó nhanh hơn, không phải bản chất của nó.
+
+## VI. Hệ quả thực tiễn
+
+**Nghệ thuật đặt câu hỏi**: cần tính cụ thể, tính mở, tính chân thực.
+
+**Giao thức "Gieo câu hỏi"**: (1) Hình thành câu hỏi - viết tay; (2) "Nạp" - đọc to, kích hoạt đa giác quan; (3) Thả ra - ngừng nghĩ, để DMN không giữ trạng thái đóng van; (4) Thu nhận - ghi lại ngay khi câu trả lời đến qua giấc mơ, trực giác, synchronicity.
+
+**Nâng cấp độ phân giải**: tiếp xúc thông tin ở ngưỡng trên (hiểu 70-80%, không phải 100% hay 30%) - "vùng phát triển gần" của Vygotsky áp dụng cho van giảm áp.
+
+**Đồng bộ hóa với ăng-ten khác**: cùng tần số khác góc nhìn; tránh nhiễu từ người hoài nghi/tiêu cực; luân phiên cộng hưởng nhóm và "rỗng" cá nhân.
+
+## VII. Kết luận
+
+Thông tin di chuyển qua trường cộng hưởng, không "đi" như vật thể. Câu hỏi là cơ chế điều chỉnh tần số; van giảm áp là cơ chế kiểm soát biên độ; cấu trúc nơ-ron là cơ chế giải mã. Luật hấp dẫn không phải "thu hút những gì bạn muốn" mà là **cộng hưởng với những gì bạn được điều chỉnh để bắt**.
+
+\`\`\`
+TRƯỜNG THÔNG TIN VŨ TRỤ
+        │ Cộng hưởng
+   Não A ←→ Não B ←→ Não C   (các trạm thu phát ở tần số/độ phân giải khác nhau)
+        │
+   CÂU HỎI (điều chỉnh tần số)
+        │
+   VAN GIẢM ÁP (kiểm soát biên độ & độ phân giải)
+        │
+   NƠ-RON / vi ống (giải mã & khuếch đại)
+        │
+   Ý THỨC (câu trả lời có ý nghĩa)
+\`\`\`
+
+---
+
+*File tiếp theo: Insight #7 - "Bản đồ câu hỏi": hệ thống phân loại câu hỏi theo tần số và độ phân giải.*</script>
+<script>
+  const src = document.getElementById('md-source').textContent;
+  document.getElementById('article-body').innerHTML = marked.parse(src);
+</script>
+</body></html>

@@ -19,6 +19,7 @@ const GRAPH_NODES = [
   {id:16, label:"#16 Làm rỗng não bộ", branch:"found"},
   {id:17, label:"#17 Hai Loại Lượng Tử", branch:"quant"},
   {id:18, label:"#18 Giọng Nói Bên Tai", branch:"found"},
+  {id:19, label:"#19 Tiềm Thức Chỉ Huy", branch:"found"},
 ];
 
 // edges: liên kết tường minh (mục "Liên kết" trong từng file) — type "explicit"
@@ -28,6 +29,7 @@ const GRAPH_EDGES_EXPLICIT = [
   [14,7],[14,8],[14,10],[14,11],[15,10],[15,11],[15,14],[16,3],[16,10],
   [17,7],[17,8],[17,9],[17,10],[17,11],
   [18,6],[18,8],[18,10],[18,11],[18,16],[18,17],
+  [19,1],[19,6],[19,17],[19,18],
 ];
 // edges: kế tiếp tuần tự (weaker) — type "sequential"
 const GRAPH_EDGES_SEQ = [];
